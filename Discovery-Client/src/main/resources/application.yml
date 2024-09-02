@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: Discovery-Client
+  config:       # Config Server import
+    import: optional:configserver:http://localhost:8888

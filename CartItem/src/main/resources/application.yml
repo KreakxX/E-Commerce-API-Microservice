@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: CartItem-Service
+  config:
+    import: optional:configserver:http://localhost:8888

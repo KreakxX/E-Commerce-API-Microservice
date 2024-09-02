@@ -1,0 +1,42 @@
+server:
+  port: 8222
+
+eureka:
+  instance:
+    hostname: localhost
+  client:     # Eureka Clieet Config to connect with Eureka Server
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+spring:
+  application:
+    name: Api-Gateway
+
+  web:
+    cors:
+      allowed-origins: "*"
+      allowed-methods: "*"      # Cors Config
+      allowed-headers: "*"
+      allow-credentials: true
+      max-age: 3600
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: Cart-Service
+          uri: lb://Cart-Service
+          predicates:
+            - Path=/api/v1/Cart/**
+
+        - id: CartItem-Service                # Routes and uris
+          uri: lb://CartItem-Service
+          predicates:
+            - Path=/api/v1/CartItem/**
+
+        - id: User-Service
+          uri: lb://User-Service
+          predicates:
+            - Path=/api/v1/User/**

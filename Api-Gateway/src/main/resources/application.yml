@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: Api-Gateway     # name for the Application
+  config:
+    import: optional:configserver:http://localhost:8888   # import ConfigServer there are all Config in one place
+
+

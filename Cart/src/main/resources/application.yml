@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: Cart-Service  # Name of Microservice
+  config:
+    import: optional:configserver:http://localhost:8888 # implementing the configserver for configs
